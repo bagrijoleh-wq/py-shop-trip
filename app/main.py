@@ -1,4 +1,11 @@
-from app.customers import customers, shops, distance, product_cost, fuel_cost_for_distance, bill_from_the_shop
+from app.customers import (
+    customers,
+    shops,
+    distance,
+    product_cost,
+    fuel_cost_for_distance,
+    bill_from_the_shop
+)
 
 
 def shop_trip() -> None:
@@ -58,8 +65,3 @@ def shop_trip() -> None:
         customer.money -= best_cost
 
         print(f"{customer.name} has {customer.money:.2f} dollars\n")
-
-
-
-if __name__ == "__main__":
-    shop_trip()
