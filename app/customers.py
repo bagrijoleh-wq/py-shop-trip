@@ -1,8 +1,9 @@
 import json
-from datetime import datetime
+import datetime
 
 from dataclasses import dataclass
 from math import sqrt
+from pathlib import Path
 from app.shop import Shop
 
 
@@ -26,7 +27,7 @@ class Customer:
         return cls(**data)
 
 
-with open("config.json") as data_file:
+with open(Path(__file__).resolve().parent / "config.json") as data_file:
     data_main = json.load(data_file)
 
 customers = [
@@ -59,12 +60,12 @@ def product_cost(product_cart: dict, products: dict) -> float:
 
 def bill_from_the_shop(customer: Customer, shop: Shop) -> None:
 
-    print(f"\nDate: {datetime.now().strftime('%m/%d/%Y %H:%M:%S')}")
+    print(f"\nDate: {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
     print(f"Thanks, {customer.name}, for your purchase!")
     print("You have bought:")
     for product, amount in customer.product_cart.items():
         price = shop.products[product]
-        print(f"{amount} {product} for {amount * price}")
+        print(f"{amount} {product}s for {round(amount * price, 2)} dollars")
     prod_cost = product_cost(
         customer.product_cart,
         shop.products

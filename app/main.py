@@ -64,4 +64,4 @@ def shop_trip() -> None:
 
         customer.money -= best_cost
 
-        print(f"{customer.name} has {customer.money:.2f} dollars\n")
+        print(f"{customer.name} now has {customer.money:.2f} dollars\n")
