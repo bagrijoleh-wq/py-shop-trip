@@ -65,10 +65,10 @@ def bill_from_the_shop(customer: Customer, shop: Shop) -> None:
     print("You have bought:")
     for product, amount in customer.product_cart.items():
         price = shop.products[product]
-        print(f"{amount} {product}s for {round(amount * price, 2)} dollars")
+        print(f"{amount} {product}s for {amount * price:.2f} dollars")
     prod_cost = product_cost(
         customer.product_cart,
         shop.products
     )
-    print(f"Total cost is {prod_cost} dollars")
+    print(f"Total cost is {prod_cost:.2f} dollars")
     print("See you again!\n")
