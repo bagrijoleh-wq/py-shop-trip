@@ -4,7 +4,8 @@ from app.customers import (
     distance,
     product_cost,
     fuel_cost_for_distance,
-    bill_from_the_shop
+    bill_from_the_shop,
+    format_output
 )
 
 
@@ -35,7 +36,7 @@ def shop_trip() -> None:
 
             print(
                 f"{customer.name}'s trip to the {shop.name} "
-                f"costs {total_cost:.2f}"
+                f"costs {format_output(total_cost)}"
 
             )
 
@@ -66,5 +67,8 @@ def shop_trip() -> None:
 
         print(
             f"{customer.name} now has "
-            f"{round(customer.money, 2):g} dollars\n"
+            f"{format_output(customer.money)} dollars\n"
         )
+
+if __name__ == "__main__":
+    shop_trip()
