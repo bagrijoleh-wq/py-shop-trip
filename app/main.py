@@ -69,6 +69,3 @@ def shop_trip() -> None:
             f"{customer.name} now has "
             f"{format_output(customer.money)} dollars\n"
         )
-
-if __name__ == "__main__":
-    shop_trip()

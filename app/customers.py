@@ -50,7 +50,7 @@ def fuel_cost_for_distance(
     return liters * fuel_price
 
 
-def format_output(number: int| float) -> str:
+def format_output(number: int | float) -> str:
     value = round(number, 2)
     if isinstance(value, int):
         return str(int(value))
@@ -72,7 +72,10 @@ def bill_from_the_shop(customer: Customer, shop: Shop) -> None:
     print("You have bought:")
     for product, amount in customer.product_cart.items():
         price = shop.products[product]
-        print(f"{amount} {product}s for {format_output(amount * price)} dollars")
+        print(
+            f"{amount} {product}s for "
+            f"{format_output(amount * price)} dollars"
+        )
     prod_cost = product_cost(
         customer.product_cart,
         shop.products
