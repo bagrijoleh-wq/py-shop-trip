@@ -66,5 +66,5 @@ def shop_trip() -> None:
 
         print(
             f"{customer.name} now has "
-            f"{ round(customer.money, 2):g} dollars\n"
+            f"{round(customer.money, 2):g} dollars\n"
         )
